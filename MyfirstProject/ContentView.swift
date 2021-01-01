@@ -9,24 +9,65 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
-            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10){
+        
+        VStack(alignment: .leading, spacing: 0, content: {
             
-                Image(systemName: "cloud")
+            Text("Connectivity status:").bold()
+                .padding(0)
+     
+            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                 
-                Text("Weather")
-            }.padding(20)
-            .background(Color.init(#colorLiteral(red: 0, green: 1, blue: 0.8065903783, alpha: 1)))
+                Circle().fill(Color.green)
+                    .frame(width: 10, height: 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                
+                Text("Good connection").bold().foregroundColor(.green)
             
-            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10){
-                Image(systemName: "calendar")
+            })
+            
+            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                 
-                Text("Calendar")
-            }.padding(20)
-            .background(Color.init(#colorLiteral(red: 0, green: 1, blue: 0.8065903783, alpha: 1)))
+                Circle().fill(Color.orange)
+                    .frame(width: 10, height: 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                
+                Text("Low connection").bold().foregroundColor(.orange)
+            
+            })
+            
+            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                
+                Circle().fill(Color.red)
+                    .frame(width: 10, height: 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                
+                Text("Bad connection").bold().foregroundColor(.red)
+            
+                
+            })
+            Spacer().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            
+            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10){
+                
+                    Image(systemName: "cloud")
+                        .foregroundColor(.white)
 
-        }
-            
+                    
+                    Text("Weather").bold().foregroundColor(.white)
+                }.padding(20)
+                .background(Color.init(#colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                
+                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10){
+                    Image(systemName: "calendar")
+                    
+                    Text("Calendar").bold()
+                }.padding(20)
+                .background(Color.init(#colorLiteral(red: 0.9875889421, green: 0.9737030864, blue: 0.5652509928, alpha: 1)))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                
+            }
+        
+        })
+        
     }
 }
 
