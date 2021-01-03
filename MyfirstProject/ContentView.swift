@@ -8,13 +8,39 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showDetail = false
+    @State private var name = ""
+    @State private var password = ""
+
+    
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 0, content: {
+        
+        VStack(alignment: .center, spacing: 0, content: {
             
-            Text("Connectivity status:").bold()
-                .padding(0)
-     
+            TextField("Enter your name", text: $name).padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            SecureField("Enter your password", text: $password).padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            
+            if showDetail{
+                Text("your name: \(name)")
+                Text("your password: \(password)")
+
+            }
+            
+            Button(action: {
+                self.showDetail.toggle()
+            }){
+                /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/.foregroundColor(.white)
+            }.padding(10)
+            .background(Color.init(#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)))
+            .clipShape(RoundedRectangle(cornerRadius: 5)).padding()
+        
+                 
             HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                 
                 Circle().fill(Color.green)
@@ -42,6 +68,8 @@ struct ContentView: View {
             
                 
             })
+                
+            
             Spacer().frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
             HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
